@@ -1,0 +1,8 @@
+csv파일을 슬라이싱해서 종속벡터를 따로 분리하는 법을 배움.
+그리고 결측값이 있을 때 결측값을 해결하는 방법을 배움.
+from sklearn.impute import SimpleImputer
+imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
+imputer.fit(x[:,1:3])
+x[:,1:3] = imputer.transform(x[:,1:3])
+중 imputer에 SimpleImputer 인스턴스를 부여해서 imputer.fit을 실행하면 missing_values로 설정한 결측값들이 strategy로 결정한 mean을 통해 x의 1에서 2열까지의 모든 결측값들이 모두 각 열의 평균 값들로 바뀜
+그래서 impuer.trasform을 이용해 결측값을 없앤 벡터들로 구성함

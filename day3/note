@@ -1,0 +1,12 @@
+x_train, x_test, y_train, y_test = train_test_split(x,y, test_size = 0.2, random_state = 1)
+#test_size = 0.2일 경우 8개의 데이터가 훈련 데이터로, 나머지 2개의 데이터가 테스트 데이터로 들어감(Data.csv에 10개의 데이터가 있기 때문)
+#random_state = 1로 설정해서 똑같은 데이터로 나눠지도록 설정함
+와 같은 방법으로 학습 데이터와 훈련 데이터를 나눔
+
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+x_train[:, 3:] = sc.fit_transform(x_train[:, 3: ])
+x_test[:, 3:] = sc.transform(x_test[:, 3: ])
+와 같이 데이터 스케일링을 통해 기존의 44정도의 값을 -2~2사이의 일정한 값으로 반환시킴
+스케일링을 할 때 x_train에는 .fit_transform을 썼지만 x_test에는 .transform을 쓴 이유는 x_test에도 .fit_transform을 쓰게 되면 새로운 방법으로 스케일링을 하기 때문에 값이 달라진다.
+즉, 같은 스케일링 모델로 스케일링을 해야하기 때문에 위에서 한번 .fit을 하게 되면 그 모델로 또 씀

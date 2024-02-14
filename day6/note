@@ -16,7 +16,18 @@ ex)차수가 2이면 1,10,100과 같은 식으로 되어있음
 다항식 회귀의 식은 y= b0+b1*x1+b2*x2^2+....와 같은 식으로 한가지 변수에 대해 곱하는 식으로 식을 만들기 때문에 위의 예시 같은 상황이 나타난다.
 
 lin_reg.predict([[6.5]])
-여기서 [[6.5]]로 되어 있는 이유는 선형회귀는 x와 y, 즉 2D로 이루어져 있으므로 [[6.5]]]로 하여 데이터도 차원 수를 맞춰줘야 한다.
+기본적으로 회귀에 학습되는 데이터의 형식은 배열과 벡터이므로 입력을 할 때 [3]과 같이 배열 또는 벡터 형식으로 바꾸어 입력해야한다.
+그리고 위의 경우에는 선형회귀는 x와 y, 즉 2D로 이루어져 있으므로 [[6.5]]]로 하여 데이터도 차원 수를 맞춰줘야 한다.
+
+[[6.5]]를 6.5로 했을 때의 에러 메세지
+ValueError: Expected 2D array, got scalar array instead:
+array=6.5.
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+
+[[6.5]]를 [6.5]로 바꾸었을 때의 에러 메세지
+ValueError: Expected 2D array, got 1D array instead:
+array=[6.5].
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
 
 다항식 회귀를 사용하여 특정 값을 예측할 때도 앞에서 말했듯이 값을 변형 해주어야 한다.
 lin_reg_2.predict(poly_reg.fit_transform([[6.5]]))

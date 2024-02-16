@@ -1,0 +1,16 @@
+대부분의 코드는 지난번과 비슷했음
+지난번에 배웠던 변수를 제곱할 수 있었던 다항식 회귀와는 다르게 이번 SVR모델은 독립변수 X와 종속변수인 Y에 대해 스케일링을 해줬어야 했다.
+
+우선 Y의 데이터 값의 형식이 벡터 이므로 
+y = y.reshape(len(y),1) 을 이용해 2차원 행렬 형식으로 바꿔줬다.
+
+from sklearn.preprocessing import StandardScaler
+sc_X= StandardScaler()
+sc_y= StandardScaler()
+X= sc_X.fit_transform(X)
+y= sc_y.fit_transform(y)
+그 다음 X와 Y에 각각 다른 스케일러 클래스를 호출해 데이터를 스케일링 했다.
+
+값을 예측할 때 우리가 앞에서 Y에도 스케일러를 적용했기 때문에 우리가 원하는 값으로 출력되기 위해서는 다시 역추적하는 과정이 필요했다.
+sc_y.inverse_transform(regressor.predict(sc_X.transform([[6.5]])).reshape(-1,1))
+와 같이 스케일링된 값을 역추적 해서 우리가 원하는 값으로 만들었다.

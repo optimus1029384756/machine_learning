@@ -1,0 +1,7 @@
+오늘은 의사결정트리 나무 회귀에 대해서 공부했어요
+
+from sklearn.tree import DecisionTreeRegressor
+clf = DecisionTreeRegressor(random_state = 0)
+clf.fit(X,y)
+선형 회귀와 비슷하게 의사결정트리를 임포트하고 클래스를 호출한 뒤 학습시킴
+

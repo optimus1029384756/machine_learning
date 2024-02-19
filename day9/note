@@ -1,0 +1,33 @@
+회귀 모델 중에서 가장 좋은 성능이 좋은 모델을 찾기 위한 방법에 대해서 ㄱ공부했다. 여기서 다중, 다항식, SVM, 의사결정 트리, 랜덤 포레스트 회귀 모델 들을 다 돌려봤는데 랜덤 포레스트 회귀가 높아서
+사본으로 가져옴.
+
+여기서 모델의 성능을 평가 할 때는 r2_score라는 모듈을 사용했음.
+
+scikit-learn 홈페이지의 API에 들어가면 scikit-learn의 모든 모듈들의 설명을 볼 수 있다.
+
+그리고 모델들의 장단점들에 대해서도 배웠는데
+
+-Linear Regression
+장점: Works on any size of dataset, gives informations about relevance of features
+단점: The Linear Regression Assumptions
+
+-Polynomial Regression 
+장점: Works on any size of dataset, works very well on non linear problems
+단점:Need to choose the right polynomial degree for a good bias/variance tradeoff
+
+-SVR 
+장점: Easily adaptable, works very well on non linear problems, not biased by outliers
+단점: Compulsory to apply feature scaling, not well known, more difficult to understand
+
+-Decision Tree Regression 
+장점: Interpretability, no need for feature scaling, works on both linear / nonlinear problems
+단점: Poor results on too small datasets, overfitting can easily occur
+
+-Random Forest Regression 
+장점: Powerful and accurate, good performance on many problems, including non linear
+단점: No interpretability, overfitting can easily occur, need to choose the number of trees
+
+그리고 오버 피팅을 방지하기 위한 정규화를 도와주는 도구들에 대해서도 배웠다.
+Ridge Regression
+Lasso
+Elastic Net

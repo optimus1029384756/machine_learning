@@ -1,1 +1,4 @@
+svc에 대해 배웠다. svc는 support vector classifier로 데이터를 클래스 별로 분류할 때 초평면을 이용해 데이터를 분류한다.
+코드는 딱히 크게 변한게 없음
 
+참고: https://blog.naver.com/tjdudwo93/221051481147
